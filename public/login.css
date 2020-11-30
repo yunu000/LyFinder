@@ -1,4 +1,39 @@
 import url('https://fonts.googleapis.com/css?family=Mukta');
+/*Navbar*/
+.navbar
+{
+    /*width: 55rem;*/
+    margin: auto;
+    border-radius: 2px solid black;
+}
+.cstm-btn
+{
+    margin : 0px 1.25rem 0px .1rem;
+}
+.cstm-btn a
+{
+    color: black;
+}
+.cstm-btn a:hover
+{
+    text-decoration: none;
+    color: white;
+}
+.navbar-nav li a
+{
+    margin:0rem 1rem 0rem 1rem;
+}
+.navbar-brand :hover
+{
+    
+}
+li a:hover
+{
+    font-weight: bold;
+    font-size: 1.0rem;
+    /*margin:0rem .2rem 0rem 1rem;*/
+}
+/*Form*/
 body{
   font-family: 'Mukta', sans-serif;
     height:100vh;

@@ -30,12 +30,28 @@ client.connect(function(){
 
 app.get("/",function(req,res)
 {
-	res.render('index');
+	const query = `
+	SELECT *
+	FROM request
+	`;
+	client.query(query, (err, r) => {
+	    if (err) {
+	        console.error(err);
+	        return;
+	    }
+	    
+	res.render('index',{rows:r.rows});
+	});
+})
+app.get("/post",function(req,res)
+{
+	res.sendFile(__dirname+"/post.html")
 })
 app.get("/:file",function(req,res)
 {
 	res.render("login",{file1:"login",file2:req.params.file})
 })
+
 app.post("/login",function(req,res)
 {
 	console.log(req.body)
@@ -50,13 +66,29 @@ app.post("/login",function(req,res)
 	        console.error(err);
 	        return;
 	    }
-	    console.log(r.rows[0].password)
-	    console.log(req.body.password.toString())
 	   	if(r.rows[0].password==req.body.password.toString())
-			res.send(html='<h1>Logged In</h1>');
+	   	{
+
+			const query = `
+			SELECT *
+			FROM request
+			`;
+			client.query(query, (err, r) => {
+			    if (err) {
+			        console.error(err);
+			        return;
+			    }
+			    
+			res.render('index',{rows:r.rows});
+			});
+	   	}
 		else
-			res.send(html='<h1>Incorrect Password</h1>');
+		{
+			alert("Incorrect Password");
+			res.render('login',{file1:'login',file2:'login'})
+		}
 	});
+	
 })
 app.post("/signup",function(req,res)
 {
@@ -86,4 +118,34 @@ app.post("/signup",function(req,res)
 	});
 	res.render('index')
 });
+app.post("/post",function(req,res)
+{
+	const u_id=1;
+	console.log(req.body);
+	const bgroup=req.body.bgroup.toString();
+	const address=req.body.address.toString();
+	const unit=parseInt(req.body.unit.toString());
+	console.log(bgroup,address,unit)
+	const query = `
+	INSERT INTO request (user_id,blood_type,unit,address)
+	VALUES (${u_id},'${bgroup}',${unit},'${address}')
+	`;
+	const query1= `
+	SELECT *
+	FROM request
+	`;
+	client.query(query, (err, r) => {
+	    if (err){
+	        console.error(err);
+	        return;
+	    }
+	});
+	client.query(query1, (err, r) => {
+	    if (err){
+	        console.error(err);
+	        return;
+	    }
+		res.render('index',{rows:r.rows})
+	});
+})
 app.listen(port)

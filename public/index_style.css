@@ -1,15 +1,33 @@
 @import url('https://fonts.googleapis.com/css?family=Mukta');
-body
+html,body
 {
   	font-family: 'Mukta', sans-serif;
+  	height: 100%;
+  	width: 100%;
+}
+.navbar
+{
+	/*width: 55rem;*/
+	margin: auto;
+	border-radius: 2px solid black;
 }
 .cstm-btn
 {
 	margin : 0px 1.25rem 0px .1rem;
 }
+.cstm-btn a
+{
+	color: black;
+}
+.cstm-btn a:hover
+{
+	text-decoration: none;
+	color: white;
+}
 .navbar-nav li a
 {
 	margin:0rem 1rem 0rem 1rem;
+	font-size: 1rem;
 }
 .navbar-brand :hover
 {
@@ -18,7 +36,48 @@ body
 li a:hover
 {
 	font-weight: bold;
-	font-size: 1.0rem;
+	/*font-size: 1.1rem;*/
 	/*margin:0rem .2rem 0rem 1rem;*/
+}
+/*<columns>*/
+.cont
+{
+	/*border: 2px solid black;*/
+	height: 90%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	margin: 0px;
+}
+.inner_container_middle h5
+{
+	text-align: center;
+}
+.inner_container_middle
+{
+	width: 50%;
+	/*text-align: center;*/
+
+	/*height: 45rem;*/
+}
+.card
+{
+	width: 100%;
+	margin-top: 2rem;
+	margin-bottom: 2rem; 
+}
+.card-text
+{
+	text-align: center;
+}
+.card-text h4
+{
+	display: inline-block;
+}
+.inner_container_left, .inner_container_right
+{
+	/*border: 2px solid black;*/
+	/*height: 45rem;*/
+	width: 25%;
 }
 
