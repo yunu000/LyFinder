@@ -1,0 +1,87 @@
+/*Navbar*/
+
+.navbar
+{
+  position: sticky;
+  top: 0;
+  z-index: 1071;
+  margin: auto;
+}
+.navbar-logo
+{
+  height: 30px;
+  margin-right: 10px;
+  border-radius: 200px;
+}
+.cstm-btn
+{
+  margin : 0px 1.25rem 0px .1rem;
+}
+.cstm-btn a
+{
+  color: black;
+}
+.cstm-btn a:hover
+{
+  text-decoration: none;
+  color: white;
+}
+.navbar-nav li a
+{
+  margin:0rem 1rem 0rem 1rem;
+  font-size: 1rem;
+}
+.navbar-text
+{
+  padding: 0;
+  padding-bottom: 4px;
+}
+.registration
+{
+  padding-left: 0;
+  border-left: 0;
+  margin-left: 16px;
+}
+/*Intro*/
+
+.jumbotron
+{
+  text-align: center;
+  margin-bottom: 0;
+  background-color: #e08172  ;
+  color: white;
+  padding-bottom: 30;
+  border-radius: 0;
+}
+.Intro-logo
+{
+  height: 200px;
+  border-radius: 100px;
+  margin-bottom: 30px;
+}
+#testimonial
+{
+  text-align: center;
+  /*background-color: #ef8172;*/
+  /*background-image: linear-gradient(#ef8172,#991818);*/
+  color: #fff;
+}
+#footer
+{
+  text-align: center;
+  padding: 7% 15%;
+}
+.carousel-item
+{
+  padding: 7% 15%;
+}
+
+#footer
+{
+  text-align: center;
+  padding-bottom: 0;
+}
+
+
+
+

@@ -12,7 +12,7 @@
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand" href="#">
-    		<img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+    		<img src="./LyFinder.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy"  style="border-radius: 2px;">
     		LyFinder
   		</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,25 +31,33 @@
 	        <a class="nav-link" href="#">Post a Request</a>
 	      </li>
 	    </ul>
-	    <button class="btn btn-outline-secondary my-2 my-sm-0 cstm-btn"><a href="/signup">SignUp</a></button>
-	    <button class="btn btn-outline-secondary my-2 my-sm-0 cstm-btn" ><a href="/login">LogIn</a></button>
+	    <!-- <button class="btn btn-outline-secondary my-2 my-sm-0 cstm-btn"> -->
+	    	<!-- /////// -->
+	    <!-- </button> -->
+	    <!-- <button class="btn btn-outline-secondary my-2 my-sm-0 cstm-btn" > -->
+	    	<!-- <a class="btn btn-outline-secondary my-2 my-sm-0 cstm-btn" href="/login">LogIn</a> -->
+	    <!-- </button> -->
 	  </div>
 	</nav>
-	<!-- Post Form -->
-	<div>
-		<div class="white-panel">
-	        
-	        <div class="register-show">
-	            <h2>Post Blood Request</h2>
-	            <form action="/post" method="post">
-	                    <input type="text" name="unit"placeholder="No. of units">
+	<div class="login-reg-panel">
+	<div class="white-panel">
+            <div class="login-show show-log-panel">
+                <h2>Post a Blood Request</h2>
+                <hr>
+                <form action="/post" method="post">
+                    	<input type="text" name="unit"placeholder="No. of units">
 	                    <input type="text" name="bgroup"placeholder="Blood Group">
 	                    <input type="text" name="address"placeholder="Address">
-	                    <button type="submit" class="btn_register">Register</button>
-	                    <!-- <input type="button" value="Register" > -->
-	            </form>
-	        </div>
-	    </div>
+	                    <select name="emergency">
+							<option value="0" data-group="0">Select Emergency Level</option>
+							<option value="extreme" >Extreme</option>
+							<option value="moderate" >Moderate</option>
+							<option value="low">Low</option>
+						</select>
+	                    <button type="submit" class="btn_register">Post</button> 
+                </form>
+            </div>
+	</div>
 	</div>
 </body>
 </html>

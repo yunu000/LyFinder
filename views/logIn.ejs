@@ -12,7 +12,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
-            <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+            <img src="./LyFinder.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy" style="border-radius: 2px;">
             LyFinder
         </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,14 +41,14 @@
             <!-- <p>Lorem ipsum dolor sit amet</p> -->
             <!-- <label id="label-register" for="log-reg-show">Login</label> -->
             <!-- <input type="radio" name="active-log-panel" id="log-reg-show" checked="checked"> -->
-            <button id="label-login" name="active-log-panel" id="log-login-show"><a href="/login">Log In</a></button>
+            <!-- <button id="label-login" name="active-log-panel" id="log-login-show"> --><a href="/login" class="btn">Log In</a><!-- </button> -->
         </div>
                             
         <div class="register-info-box">
             <h2>Don't have an account?</h2>
             <!-- <p>Lorem ipsum dolor sit amet</p> -->
             <!-- <label id="label-login" for="log-login-show">Register</label> -->
-            <button id="label-login" name="active-log-panel" id="log-login-show"><a href="/signup">Register</a></button>
+            <!-- <button id="label-login" name="active-log-panel" id="log-login-show"> --><a href="/signup" class="btn">Register</a><!-- </button> -->
             <!-- <input type="radio" name="active-log-panel" id="log-login-show" > -->
         </div>
                             
@@ -58,9 +58,10 @@
                 <form action="/login" method="post">
                     <input type="text" placeholder="Email" name="userName">
                     <input type="password" placeholder="Password" name="password">
-                    <button type="submit" class="btn">Login</button>
+                    <p class="hide">Wrong Password...Try Again</p>
+                    <button type="submit" class="btn btn_register">Login</button>
                     <!-- <input type="button" value="Login" > -->
-                    <a href="">Forgot password?</a> 
+                    <!-- <a href="">Forgot password?</a> -->
                 </form>
             </div>
             <div class="register-show">
@@ -74,12 +75,17 @@
                     <input type="text" name="address"placeholder="Address">
                     <input type="password" name="pass"placeholder="Password">
                     <input type="password" name="cpass"placeholder="Confirm Password">
-                    <button type="submit" class="btn_register">Register</button>
+                    <button type="submit" class="btn btn_register">Register</button>
                     <!-- <input type="button" value="Register" > -->
                 </form>
             </div>
         </div>
     </div>
-
+    <script type="text/javascript">
+            if(<%=flag%>)
+            {
+                alert("Incorrect Password...")
+            }
+    </script>
 </body>
 </html>
