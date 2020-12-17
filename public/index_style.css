@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Mukta');
 html,body
 {
+	/*background:#f26d6f; */
   	font-family: 'Mukta', sans-serif;
   	height: 100%;
   	width: 100%;
@@ -62,6 +63,7 @@ li a:hover
 }
 .card
 {
+	background-color: #cbf6db;
 	text-align: center;
 	width: 100%;
 	margin-top: 2rem;

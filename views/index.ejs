@@ -24,21 +24,18 @@
 	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	    <ul class="navbar-nav mr-auto">
 	      <li class="nav-item active">
-	        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-	      </li>
-	      <li class="nav-item active">
-	        <a class="nav-link" href="#">About Us</a>
-	      </li>
-	      <li class="nav-item active">
 	        <a class="nav-link" href="/post">Post a Request</a>
+	      </li>
+	      <li class="nav-item active">
+	        <a class="nav-link" href="/profile">Profile<span class="sr-only">(current)</span></a>
 	      </li>
 	    </ul>
 	    <!-- <button class="btn btn-outline-secondary my-2 my-sm-0 cstm-btn"> -->
 	    <div class="btn">
-	    	<a href="/profile">Welcome <%=name.split(" ")[0]%></a>
+	    	<a href="#">Welcome <%=name.split(" ")[0]%></a>
 	    </div>
-	    	<!-- <a class="btn btn-outline-secondary my-2 my-sm-0 cstm-btn" href="/login">LogIn</a>
-	    	<a class="btn btn-outline-secondary my-2 my-sm-0 cstm-btn" href="/signup">SignUp</a> -->
+	    	<!-- <a class="btn btn-outline-secondary my-2 my-sm-0 cstm-btn" href="/login">LogIn</a> -->
+	    	<a class="btn btn-outline-secondary my-2 my-sm-0 cstm-btn" href="/signup">LogOut</a>
 	    <!-- </button> -->
 	    <!-- <button class="btn btn-outline-secondary my-2 my-sm-0 cstm-btn" > -->
 	    <!-- </button> -->
@@ -57,17 +54,17 @@
 			<% %>
 			<% %>
 			<% for(var i=0;i<rows.length;i++){ %>
-				<% console.log(rows[i].date)%>
-				<% if(rows[i]){%>
-
-				<%}%>
+				<!-- <% console.log(rows[i].date)%> -->
 				<div class="card">
 					<div class="card-body">
+						<%var d= rows[i].date.toString().split(" ") %>
+					    <p style="text-align: left;"><%=d[0]+" "+d[1]+" "+d[2]%></p>
+					    <h4 class="card-title">Emergency : <%=rows[i].emergency%></h5>
 					    <h4 class="card-title">REQUIRED <%=rows[i].blood_type%></h5>
 					    <h4 class="card-title">UNIT : <%=rows[i].unit%></h5>
 					    <hr>
 					    <p class="card-text"><h5 style="display: inline-block;">Address</h4> : <%=rows[i].address%></p>
-					    <a href="#" class="btn btn-primary">Respond</a>
+					    <a href="#" class="btn btn-secondary" >Respond</a>
 			  		</div>		
 				</div>
 			<%}%>

@@ -1,67 +1,16 @@
 <%- include("partials/header") %>
 </head>
-<body>
-<%- include("partials/navbar") %>
-
-<div class="cont">
-    <div class="inner_container_left">
-    </div>
-    <div class="inner_container_middle">
-        <!-- <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-title mb-4">
-                                <div class="d-flex justify-content-start">
-                                    <div class="image-container">
-                                        <div class="middle">
-                                            <input type="button" class="btn btn-dark" id="btnChangePicture" value="Change" />
-                                            <input type="file" style="display: none;" id="profilePicture" name="file" /> 
-
-                                            <form class="md-form">
-                                                <div class="file-field">
-                                                  <div class="mb-4">
-                                                    <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg"
-                                                      class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar">
-                                                  </div>
-                                                  <div class="d-flex justify-content-center">
-                                                    <div class="btn btn-mdb-color btn-rounded float-left">
-                                                      <input type="file">
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                              </form>
-
-                                              <style>
-                                                .avatar-pic {
-                                                    width: 150px;
-                                                    }
-                                              </style>
-
-                                        </div>
-                                    </div>
-                                    <div class="userData ml-3">
-                                        <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold"><a href="javascript:void(0);">Some Name</a></h2>
-                                    </div>
-                                    <div class="ml-auto">
-                                        <input type="button" class="btn btn-primary d-none" id="btnDiscard" value="Discard Changes" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>    
-                    </div>
-                </div>        
-            </div>
-        </div>  -->
-        
-        <!-- Tab links -->
-        <br>
-        <div class = "container">
+<body onload="document.getElementById('defaultOpen').click();"> 
+<%- include("partials/navbar") %>  
+ <div class="login-reg-panel">
+  <div class="white-panel">
+            <div class="login-show show-log-panel">
+              <div class = "container">
           
             <div class="tab">
-                <button class="tablinks" onclick="openCity(event, 'Details')">Details</button>
+                <button  class="tablinks active" onclick="openCity(event, 'Details')" id="defaultOpen">Details</button>
                 <button class="tablinks" onclick="openCity(event, 'Transfusion')">Transfusion details</button>
+                <button class="tablinks" onclick="openCity(event, 'Request')">Request details</button>
                 <!-- <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button> -->
               </div>
               
@@ -71,27 +20,27 @@
                   <tbody>
                     <tr>
                       <th scope="row">Name</th>
-                      <td>Mark</td>
+                      <td><%=rows[0].name%></td>
                     </tr>
                     <tr>
                       <th scope="row">Age</th>
-                      <td>Mark</td>
+                      <td><%=rows[0].age%></td>
                     </tr>
                     <tr>
                       <th scope="row">Email</th>
-                      <td>Mark</td>
+                      <td><%=rows[0].email%></td>
                     </tr>
                     <tr>
                       <th scope="row">Phone Number</th>
-                      <td>Mark</td>
+                      <td><%=rows[0].phone_no%></td>
                     </tr>
                     <tr>
                       <th scope="row">Blood Group</th>
-                      <td>Mark</td>
+                      <td><%=rows[0].blood_group%></td>
                     </tr>
                     <tr>
                       <th scope="row">Address</th>
-                      <td>Mark</td>
+                      <td><%=rows[0].address%></td>
                     </tr>
                   </tbody>
                 </table>
@@ -129,7 +78,30 @@
                   </tbody>
                 </table>
               </div>
-              
+              <div id="Request" class="tabcontent">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Date & Time</th>
+                      <th scope="col">Blood Type</th>
+                      <th scope="col">Unit</th>
+                      <th scope="col">Emergency</th>
+                      <th scope="col">Address</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% for(var i=0;i<bhenchod.length;i++) {%>
+                    <tr>
+                      <td><%=bhenchod[i].date.toString()%></td>
+                      <td><%=bhenchod[i].blood_type%></td>
+                      <td><%=bhenchod[i].unit%></td>
+                      <td><%=bhenchod[i].emergency%></td>
+                      <td><%=bhenchod[i].address%></td>
+                    </tr>
+                    <%}%>
+                  </tbody>
+                </table>
+              </div>
               <!-- <div id="Tokyo" class="tabcontent">
                 <p>Tokyo is the capital of Japan.</p>
               </div> -->
@@ -199,8 +171,12 @@
             </script>
         </div>
     </div>
-    <div class="inner_container_right">
-    </div>
+  </div>
+  </div>
+  </div>
+        <!-- Tab links -->
+        <br>
+        
 
 
 

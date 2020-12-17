@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Mukta');
+body
+{
+    font-family: 'Mukta', sans-serif;
+}
+.Mid-Container hr
+{
+    width: 3%;
+    border: none;
+    border-top: 5px dotted #a8a8a8;
+    height: 0;
+    margin: 50px auto;
+    margin-top: 0;
+}
 /*Navbar*/
 
 .navbar
@@ -11,7 +25,6 @@
 {
   height: 30px;
   margin-right: 10px;
-  border-radius: 200px;
 }
 .cstm-btn
 {
@@ -42,14 +55,15 @@
   border-left: 0;
   margin-left: 16px;
 }
+
 /*Intro*/
 
 .jumbotron
 {
   text-align: center;
   margin-bottom: 0;
-  background-color: #e08172  ;
-  color: white;
+  background-color: #f26d6f  ;
+  color: #ffe6e6;
   padding-bottom: 30;
   border-radius: 0;
 }
@@ -62,26 +76,51 @@
 #testimonial
 {
   text-align: center;
-  /*background-color: #ef8172;*/
-  /*background-image: linear-gradient(#ef8172,#991818);*/
   color: #fff;
 }
 #footer
 {
-  text-align: center;
+  text-align: center; 
   padding: 7% 15%;
 }
 .carousel-item
 {
   padding: 7% 15%;
+  color:#f26d6f;
 }
 
 #footer
 {
   text-align: center;
-  padding-bottom: 0;
+  padding-bottom: 30px;
+  padding-top: 0;
 }
 
+.fab
+{
+  background-color : #f26d6f;
+}
 
+/*Counter*/
 
+.counter
+{
+  text-align: center;
+  color: #f26d6f;
+}
 
+/*Contact-Us*/
+
+.Contact-us
+{
+  text-align: center;
+  color: #f26d6f;
+  padding: 20px 50px;
+  padding-bottom: 70px;
+}
+
+.Mid-Container
+{
+  background-color: #ffe6e6;
+  padding-bottom: 10px;
+}

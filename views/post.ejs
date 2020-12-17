@@ -22,32 +22,37 @@
 	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	    <ul class="navbar-nav mr-auto">
 	      <li class="nav-item active">
-	        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+	        <a class="nav-link" href="/index">Feed</a>
 	      </li>
 	      <li class="nav-item active">
-	        <a class="nav-link" href="#">About Us</a>
+	        <a class="nav-link" href="/profile">Profile<span class="sr-only">(current)</span></a>
 	      </li>
-	      <li class="nav-item active">
+	      <!-- <li class="nav-item active">
 	        <a class="nav-link" href="#">Post a Request</a>
-	      </li>
+	      </li> -->
 	    </ul>
 	    <!-- <button class="btn btn-outline-secondary my-2 my-sm-0 cstm-btn"> -->
 	    	<!-- /////// -->
 	    <!-- </button> -->
+	    <div class="btn">
+	    	<a href="#">Welcome <%=name.split(" ")[0]%></a>
+	    </div>
 	    <!-- <button class="btn btn-outline-secondary my-2 my-sm-0 cstm-btn" > -->
-	    	<!-- <a class="btn btn-outline-secondary my-2 my-sm-0 cstm-btn" href="/login">LogIn</a> -->
 	    <!-- </button> -->
 	  </div>
 	</nav>
 	<div class="login-reg-panel">
 	<div class="white-panel">
             <div class="login-show show-log-panel">
-                <h2>Post a Blood Request</h2>
+                <h3>Post a Blood Request</h3>
                 <hr>
                 <form action="/post" method="post">
+	                    <input type="text" name="patientName"placeholder="Patient Name">
                     	<input type="text" name="unit"placeholder="No. of units">
 	                    <input type="text" name="bgroup"placeholder="Blood Group">
-	                    <input type="text" name="address"placeholder="Address">
+	                    <input type="text" name="address"placeholder="Hospital Address">
+	                    <input type="text" name="location"placeholder="City Name">
+	                    <!-- <input type="text" name="address"placeholder=""> -->
 	                    <select name="emergency">
 							<option value="0" data-group="0">Select Emergency Level</option>
 							<option value="extreme" >Extreme</option>

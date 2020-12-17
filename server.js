@@ -1,34 +1,26 @@
-const express=require('express')
-const app=express()
-const http=require('http')
-var server=http.createServer(app)
-// const io = require("socket.io")(server);
-// app.use(express.static("public"))
-// io.on('connection',socket =>{
-// 	console.log('new user')
-// 	socket.emit('chat-message','Hello World')
-// })
-// server.listen(3000)
-const io = require("socket.io")(server, {
-  cors: {
-    origin: "http://localhost:5000",
-    methods: ["GET", "POST"]
-  }
-});
+const express = require('express')
+const app = express()
+const http = require('http').createServer(app)
 
-server.listen(3000);
-const users = {}
+const PORT = process.env.PORT || 3000
 
-io.on('connection', socket => {
-  socket.on('new-user', name => {
-    users[socket.id] = name
-    socket.broadcast.emit('user-connected', name)
-  })
-  socket.on('send-chat-message', message => {
-    socket.broadcast.emit('chat-message', { message: message, name: users[socket.id] })
-  })
-  socket.on('disconnect', () => {
-    socket.broadcast.emit('user-disconnected', users[socket.id])
-    delete users[socket.id]
-  })
+http.listen(PORT, () => {
+    console.log(`Listening on port ${PORT}`)
+})
+
+app.use(express.static(__dirname + '/public'))
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html')
+})
+
+// Socket 
+const io = require('socket.io')(http)
+
+io.on('connection', (socket) => {
+    console.log('Connected...')
+    socket.on('message', (msg) => {
+        socket.broadcast.emit('message', msg)
+    })
+
 })
