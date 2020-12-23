@@ -7,11 +7,11 @@
 	<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" href="./index_style.css">
-	<!-- <script src="./index.js" type="text/javascript"></script> -->
+
 </head>
 <body>
 
-	<!-- Navigation bar -->
+
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand" href="#">
     		<img src="./LyFinder.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy" style="border-radius: 2px;">
@@ -24,60 +24,41 @@
 	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	    <ul class="navbar-nav mr-auto">
 	      <li class="nav-item active">
+	        <a class="nav-link" href="/index">Feed<span class="sr-only">(current)</span></a>
+	      </li>
+	      <li class="nav-item active">
 	        <a class="nav-link" href="/post">Post a Request</a>
 	      </li>
 	      <li class="nav-item active">
-	        <a class="nav-link" href="/profile">Profile<span class="sr-only">(current)</span></a>
-	      </li>
-	      <li class="nav-item active">
-	        <a class="nav-link" href="/bbank">Blood Bank<span class="sr-only">(current)</span></a>
+	        <a class="nav-link" href="/profile">Profile</a>
 	      </li>
 	    </ul>
-	    <!-- <button class="btn btn-outline-secondary my-2 my-sm-0 cstm-btn"> -->
 	    <div class="btn">
-	    	<a href="#">Welcome <%=name.split(" ")[0]%></a>
+	    	<a href="/profile">Welcome <%=name.split(" ")[0]%></a>
 	    </div>
-	    	<!-- <a class="btn btn-outline-secondary my-2 my-sm-0 cstm-btn" href="/login">LogIn</a> -->
-	    	<a class="btn btn-outline-secondary my-2 my-sm-0 cstm-btn" href="/signup">LogOut</a>
-	    <!-- </button> -->
-	    <!-- <button class="btn btn-outline-secondary my-2 my-sm-0 cstm-btn" > -->
-	    <!-- </button> -->
+	    	
 	  </div>
 	</nav>
-	<!-- Post -->
+
 	<div class="cont">
 		<div class="inner_container_left">
-			<!-- <h1>Hello</h1> -->
+			
 		</div>
 		<div class="inner_container_middle">
-			<!-- <h1>Hello</h1> -->
 			<% for(var i=0;i<rows.length;i++){ %>
 				<div class="card">
 					<div class="card-body">
-						<%var d= rows[i].date.toString().split(" ") %>
-					    <%var e=parseInt(rows[i].emergency) %>  
-					    <p style="text-align: left;"><%=d[0]+" "+d[1]+" "+d[2]%></p>
-					    <% if(e==0) {%>
-					    	<h4 class="card-title">EMERGENCY : EXTREME</h4>
-					    <%}%>
-					    <% if(e==1) {%>
-					    	<h4 class="card-title">EMERGENCY : MODERATE</h4>
-					    <%}%>
-					    <% if(e==2) {%>
-					    	<h4 class="card-title">EMERGENCY : LOW</h4>
-					    <%}%>
-					    <h4 class="card-title">REQUIRED <%=rows[i].blood_type%></h4>
-					    <h4 class="card-title">UNIT : <%=rows[i].unit%></h4>
+                        <h4 class="card-title">BLOOD BANK NAME : <%=rows[i].name%></h5>
+					    <h4 class="card-title">PHONE NUMBER  : <%=rows[i].phone_no%></h5>
 					    <hr>
 					    <p class="card-text"><h5 style="display: inline-block;">Address</h4> : <%=rows[i].address%></p>
-					    <a href="/Respond" class="btn btn-secondary" >Respond</a>
+					    <a href="/bloodbank<%=rows[i].bb_id%>" class="btn btn-primary">Stock</a>
 			  		</div>		
 				</div>
 			<%}%>
 
 		</div>
 		<div class="inner_container_right">
-			<!-- <h1>Hello</h1> -->
 		</div>
 	</div>
 	

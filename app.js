@@ -69,8 +69,7 @@ app.get("/",function(req,res)
 app.get("/index",(req,res)=>
 {
 	const query = `
-	SELECT *
-	FROM request
+	select * from request order by emergency,date desc
 	`;
 	client.query(query, (err, r) => {
 		if (err) {
@@ -105,9 +104,43 @@ app.get("/profile",function(req,res)
 		        return;
 		    }
 	    console.log(r.rows,"\n",rs.rows)
-		res.render("profile",{rows:r.rows,bhenchod:rs.rows})
+		res.render("profile",{rows:r.rows,row:rs.rows})
 		});
 	});
+})
+app.get("/bbank",(req,res)=>
+{
+	const query1= `
+		SELECT *
+		FROM blood_bank
+		`;
+		client.query(query1, (err, rs) => {
+		    if (err) {
+		        console.error(err);
+		        return;
+		    }
+		res.render("bloodbank",{rows:rs.rows,name:user_name})
+		});
+})
+app.get("/bloodbank:file",(req,res)=>
+{
+	var id=req.params.file;
+	const query1= `
+		SELECT *
+		FROM blood_stock
+		where bb_id=${id}
+		`;
+		client.query(query1, (err, rs) => {
+		    if (err) {
+		        console.error(err);
+		        return;
+		    }
+		res.render("blood_stock",{rows:rs.rows})
+		});
+})
+app.get("/respond",(req,res)=>
+{
+	res.render("respond");
 })
 app.get("/post",function(req,res)
 {
@@ -145,8 +178,7 @@ app.post("/login",function(req,res)
 		{
 
 			const query = `
-			SELECT *
-			FROM request
+			select * from request order by emergency,date desc
 			`;
 			client.query(query, (err, r) => {
 				if (err) {
@@ -233,15 +265,14 @@ app.post("/post",function(req,res)
 	const unit=parseInt(req.body.unit.toString());
 	const patientName=req.body.patientName.toString();
 	const location=req.body.location.toString()
-	const emergency=req.body.emergency.toString();
+	const emergency=parseInt(req.body.emergency.toString());
 	console.log(patientName,emergency)
 	const query = `
 	INSERT INTO request (user_id,blood_type,unit,address,emergency)
 	VALUES (${user_id},'${bgroup}',${unit},'${address}','${emergency}')
 	`;
 	const query1= `
-	SELECT *
-	FROM request
+	select * from request order by emergency,date desc
 	`;
 	client.query(query, (err, r) => {
 	    if (err){
@@ -280,8 +311,7 @@ app.post("/verifystep2",function(req,res)
       		if(data.status=='approved')
       		{
       			const query = `
-				SELECT *
-				FROM request
+				select * from request order by emergency,date desc
 				`;
 				client.query(query, (err, r) => {
 				    if (err) {

@@ -90,13 +90,13 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <% for(var i=0;i<bhenchod.length;i++) {%>
+                    <% for(var i=0;i<row.length;i++) {%>
                     <tr>
-                      <td><%=bhenchod[i].date.toString()%></td>
-                      <td><%=bhenchod[i].blood_type%></td>
-                      <td><%=bhenchod[i].unit%></td>
-                      <td><%=bhenchod[i].emergency%></td>
-                      <td><%=bhenchod[i].address%></td>
+                      <td><%=row[i].date.toString()%></td>
+                      <td><%=row[i].blood_type%></td>
+                      <td><%=row[i].unit%></td>
+                      <td><%=row[i].emergency%></td>
+                      <td><%=row[i].address%></td>
                     </tr>
                     <%}%>
                   </tbody>
